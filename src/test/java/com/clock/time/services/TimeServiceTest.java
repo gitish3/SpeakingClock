@@ -24,7 +24,7 @@ public class TimeServiceTest {
         String expectedOutput = "It's three forty five ";
 
         // Act
-        String result = timeService.solve(inputTime);
+        String result = timeService.convert(inputTime);
 
         // Assert
         assertEquals(expectedOutput, result);
@@ -36,7 +36,7 @@ public class TimeServiceTest {
         String inputTime = "invalid_time";
 
         // Act and Assert
-        assertThrows(NumberFormatException.class, () -> timeService.solve(inputTime));
+        assertThrows(NumberFormatException.class, () -> timeService.convert(inputTime));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class TimeServiceTest {
         String inputTime = "25:00";
 
         // Act and Assert
-        assertThrows(InvalidTimeException.class, () -> timeService.solve(inputTime));
+        assertThrows(InvalidTimeException.class, () -> timeService.convert(inputTime));
     }
 
     @Test
@@ -54,7 +54,7 @@ public class TimeServiceTest {
         String inputTime = "12:60";
 
         // Act and Assert
-        assertThrows(InvalidTimeException.class, () -> timeService.solve(inputTime));
+        assertThrows(InvalidTimeException.class, () -> timeService.convert(inputTime));
     }
 
     @Test

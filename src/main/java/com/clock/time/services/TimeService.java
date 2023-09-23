@@ -11,19 +11,18 @@ import java.util.Date;
 @Slf4j
 public class TimeService {
 
-    private static final String[] TENS = {
+    private static final String[] TimeTens = {
             "", "ten ", "twenty ", "thirty ", "forty ", "fifty "
     };
 
-    private static final String[] ONES = {
+    private static final String[] TimeOnes = {
             "twelve ", "one ", "two ", "three ", "four ", "five ",
             "six ", "seven ", "eight ", "nine ", "ten ", "eleven ",
             "twelve ", "thirteen ", "fourteen ", "fifteen ",
             "sixteen ", "seventeen ", "eighteen ", "nineteen "
     };
 
-
-    public String solve(String time) {
+    public String convert(String time) {
 
         try {
             time.trim().split(":");
@@ -50,7 +49,10 @@ public class TimeService {
 
         } catch (NumberFormatException e) {
             throw new NumberFormatException("You need to pass a valid 24 hour format hour");
+        } catch (Exception e) {
+            throw new InvalidTimeException("You need to pass a valid 24 hour format hour");
         }
+
         String result = "";
         String hourInWords = convertToWords(hour, minute);
 
@@ -76,15 +78,14 @@ public class TimeService {
                 return result.append("It's Midnight").toString();
             }
 
-            result.append("It's ").append(ONES[hours % 12]);
+            result.append("It's ").append(TimeOnes[hours % 12]);
 
         } else if (minutes % 10 == 0) {
-            result.append("It's ").append(ONES[hours % 12]).append(TENS[minutes / 10]);
+            result.append("It's ").append(TimeOnes[hours % 12]).append(TimeTens[minutes / 10]);
         } else if (minutes < 10 || minutes > 20) {
-            result.append("It's ").append(ONES[hours % 12]).append(TENS[minutes / 10]).append(ONES[minutes % 10]);
+            result.append("It's ").append(TimeOnes[hours % 12]).append(TimeTens[minutes / 10]).append(TimeOnes[minutes % 10]);
         } else {
-            // minutes > 10 && minutes < 20
-            result.append("It's ").append(ONES[hours % 12]).append(ONES[minutes]);
+            result.append("It's ").append(TimeOnes[hours % 12]).append(TimeOnes[minutes]);
         }
 
         return result.toString();

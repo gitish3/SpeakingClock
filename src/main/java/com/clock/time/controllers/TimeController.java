@@ -18,9 +18,9 @@ public class TimeController {
     private TimeService timeService;
 
     @GetMapping(value = "/convert")
-    @Operation(summary = "Converting Input time into words", description = "Retrieve the input time in words as per the 24-hour clock format")
+    @Operation(summary = "Converting Input time into words", description = "Retrieve the input time in words as per the 24-hour clock format. Input should be in format hh:mm")
     public String getTime(@RequestParam(name = "time") String time) {
-        String res = timeService.solve(time);
+        String res = timeService.convert(time);
         log.info("Request Param: {} :: Converted Time response: {}", time, res);
         return res;
     }

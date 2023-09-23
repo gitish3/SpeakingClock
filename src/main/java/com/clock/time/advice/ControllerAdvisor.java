@@ -20,7 +20,7 @@ public class ControllerAdvisor {
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(InvalidTimeException.class)
-    public ResponseEntity<?> handleCustomerNotRegisteredException(
+    public ResponseEntity<?> handleInvalidTimeException(
             InvalidTimeException exception) {
         log.error("[InvalidTimeException] occurred", exception);
         return new ResponseEntity<>(
