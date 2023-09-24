@@ -11,16 +11,9 @@ import java.util.Date;
 @Slf4j
 public class TimeService {
 
-    private static final String[] TimeTens = {
-            "", "ten ", "twenty ", "thirty ", "forty ", "fifty "
-    };
+    private static final String[] TimeTens = {"", "ten ", "twenty ", "thirty ", "forty ", "fifty "};
 
-    private static final String[] TimeOnes = {
-            "twelve ", "one ", "two ", "three ", "four ", "five ",
-            "six ", "seven ", "eight ", "nine ", "ten ", "eleven ",
-            "twelve ", "thirteen ", "fourteen ", "fifteen ",
-            "sixteen ", "seventeen ", "eighteen ", "nineteen "
-    };
+    private static final String[] TimeOnes = {"twelve ", "one ", "two ", "three ", "four ", "five ", "six ", "seven ", "eight ", "nine ", "ten ", "eleven ", "twelve ", "thirteen ", "fourteen ", "fifteen ", "sixteen ", "seventeen ", "eighteen ", "nineteen "};
 
     public String convert(String time) {
 
